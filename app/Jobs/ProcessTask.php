@@ -47,7 +47,7 @@ class ProcessTask implements ShouldQueue
 
         Transcription::create([
             'task_id' => $this->task->id,
-            'data' => $fakeTranscription,
+            'data' => json_encode($fakeTranscription),
         ]);
         $this->task->update(['status' => 'completed']);
 

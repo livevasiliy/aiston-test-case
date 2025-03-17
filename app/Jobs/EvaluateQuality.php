@@ -37,7 +37,7 @@ class EvaluateQuality implements ShouldQueue
         // Сохранение оценки
         QualityScore::create([
             'task_id' => $this->task->id,
-            'data' => $fakeScore
+            'data' => json_encode($fakeScore)
         ]);
         $this->task->update(['status' => 'evaluated']);
     }

@@ -17,7 +17,8 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'audio_url' => fake()->url(),
+            'metadata' => []
         ];
     }
 }
