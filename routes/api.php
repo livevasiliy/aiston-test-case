@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\TaskController;
-use Illuminate\Http\Request;
+use App\Http\Middleware\AuthenticateToken;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware([AuthenticateToken::class])->group(function () {
     Route::post('/tasks', [TaskController::class, 'store']);
     Route::get('/tasks/{id}', [TaskController::class, 'show']);
 });
